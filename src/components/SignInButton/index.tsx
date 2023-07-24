@@ -1,21 +1,22 @@
 import React from 'react';
 import { Feather } from '@expo/vector-icons'; 
-import GoogleSvg from '../../assets/google.svg';
-import FacebookSvg from '../../assets/Facebook.svg';
+import GoogleSvg from '../../assets/Svgs/google.svg';
+import FacebookSvg from '../../assets/Svgs/Facebook.svg';
 import {
   Container,
   TitleContainer,
   Title,
   IconContainer
 } from './styles';
+import { TouchableOpacityProps } from 'react-native';
 
-interface Props {
+interface Props extends TouchableOpacityProps{
   type: 'phone' | 'google' | 'facebook',
   
 }
-export function SignInButton({type}: Props) {
+export function SignInButton({type, ...rest}: Props) {
   return (
-    <Container type={type}>
+    <Container type={type}{...rest}>
       <IconContainer>
       {
       type === 'phone' ? <Feather name="smartphone" size={24} color="white" /> 

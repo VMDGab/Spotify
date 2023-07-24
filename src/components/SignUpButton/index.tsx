@@ -3,11 +3,15 @@ import {
     Container,
     Title,
  } from './styles';
+import { TouchableOpacityProps } from 'react-native';
 
-export function SignUpButton() {
+ interface props extends TouchableOpacityProps{
+  title: string
+ }
+export function SignUpButton({title, ...rest} : props) {
   return (
-    <Container>
-        <Title>Inscreva-se grátis</Title>
+    <Container {...rest}>
+        <Title>{title}</Title>
     </Container>
   );
 }
